@@ -35,15 +35,47 @@ If you found this paper or codebase useful, please cite our paper:
 
 
 ## 0. Environment
+```
+conda create --name hdmap-opensource python==3.8
+conda activate hdmap-opensource
+```
+0.a : Install Pytorch
+```
+pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+```
+0.b : Install MMCV-series aka open-mmlab
+```
+# Install mmcv-series
+pip install mmcv-full==1.3.9 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.9.0/index.html
+pip install mmdet==2.14.0
+pip install mmsegmentation==0.14.1
+```
+0.c  : Install mmdetection3d
+0.c1 : export cuda environment in bashrc
+```
+export CUDA_HOME=/usr/local/cuda
+```
+0.c2 : Install mmdetection3d
+```
+cd
+wget https://github.com/open-mmlab/mmdetection3d/archive/refs/tags/v0.17.3.zip
+unzip v0.17.3.zip
+cd  mmdetection3d-0.17.3
+pip install -v -e .
+```
 
-Set up environment by following this [script](env.md)
+0.d  : Install requirements.txt
+cd to your VectorMapNet_code Directory
+```
+pip install -r requirements.txt
+```
 
 ## 1. Prepare your dataset
 
 Store your data with following structure:
 
 ```
-    root
+    root of VectorMapNet
         |--datasets
             |--nuScenes
             |--Argoverse2(optional)
@@ -55,7 +87,7 @@ Store your data with following structure:
 #### Preprocess nuScenes
 
 ```
-python tools/data_converter/nuscenes_converter.py --data-root your/dataset/nuScenes/
+python tools/data_converter/nuscenes_converter.py --data-root dataset/nuScenes/ --version v1.0-mini
 ```
 
 ## 2. Evaluate VectorMapNet
