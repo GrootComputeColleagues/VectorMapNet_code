@@ -83,6 +83,7 @@ Store your data with following structure:
 ```
 
 ### 1.1 Generate annotation files
+This just generates annotation .pkl. I gotta find out what tho
 
 #### Preprocess nuScenes
 
@@ -91,7 +92,7 @@ python tools/data_converter/nuscenes_converter.py --data-root dataset/nuScenes/ 
 ```
 
 ## 2. Evaluate VectorMapNet
-
+You can skip this step if u wish
 ### Download Checkpoint
 | Method       | Modality    | Config | Checkpoint |
 |--------------|-------------|--------|------------|
